@@ -1,0 +1,100 @@
+{% extends 'courses/base.html' %}
+{% load course_custom_tags %}
+
+{% block title %}
+Login
+{% endblock %}
+
+{% block content %}
+<style>
+   .login-form {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+}
+.img-fluid {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px 0 0 10px;
+}
+
+.form-label {
+    font-size: 16px;
+    color: #343a40;
+}
+
+.form-control {
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 14px;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+.col-md-6 {
+    padding: 0px;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+</style>
+
+   <div class="container py-5 h-100">
+     <div class="row d-flex justify-content-center align-items-center h-100">
+       <div class="col col-xl-10">
+         <div class="card" style="border-radius: 1rem;">
+           <div class="row g-0">
+             <div class="col-md-6 col-lg-5 d-none d-md-block">
+               <img src="https://images.unsplash.com/photo-1576506542790-51244b486a6b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8c3R1ZHl8ZW58MHx8MHx8fDA%3D"
+                 alt="login form" class="img-fluid" height="100%" width="100" ; />
+             </div>
+             <div class="col-md-6 col-lg-7 d-flex align-items-center">
+               <div class="card-body p-4 p-lg-5 text-black">
+                  <form method="post" action="" class="login-form">
+                     {% csrf_token %}
+                     <div class="d-flex align-items-center mb-3 pb-1">
+                         <i class="fas fa-cubes fa-2x me-3" style="color: #ff6219;"></i>
+                         
+                     </div>
+                 
+                     <h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Sign In</h3>
+                 
+                     <div class="form-group mb-4">
+                        <label for="id_username" class="form-label">Email Address</label>
+                        <input type="email" id="id_username" class="form-control form-control-lg" name="username" required>
+                    </div>
+                    
+                    <div class="form-group mb-4">
+                        <label for="id_password" class="form-label">Password</label>
+                        <input type="password" id="id_password" class="form-control form-control-lg" name="password" required>
+                    </div>
+                    
+                    <div class="pt-1 mb-4">
+                        <button type="submit" class="btn btn-dark btn-lg btn-block py-2">Login</button>
+                    </div>
+                    
+                 
+                     
+                 </form>
+                 
+                 
+ 
+               </div>
+             </div>
+           </div>
+         </div>
+       </div>
+     </div>
+   </div>
+{% endblock %}

@@ -1,0 +1,190 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>{% block title %}Hello, world!{% endblock %}</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'courses/css/common.css'%}">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+        integrity="sha512-l7nYI6WvEaU1MyJVR0u7vX+03Ry5t8/oqWPubI6e59/j3/sKNF1zovHzzW0mBvY6dG/ZKN9GfGUrZHcYD3BqRg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    {% block css %}
+    <style>
+        /* Custom CSS styles */
+        h1, h2, h3, h4, h5, h6 {
+    line-height: 1.5;
+    letter-spacing: 0.05em;
+}
+        body {
+            font-family: "Agency FB";
+            background-color: rgb(255, 198, 207); /* Light gray */
+        }
+
+        .navbar {
+            background-color: #010101; /* White */
+            border-bottom: 1px solid #dee2e6; /* Light gray */
+        }
+
+        .navbar-toggler {
+            border-color: #007bff; /* Primary color */
+        }
+
+        .navbar-brand img {
+            width: 40px; /* Adjust the size of the logo */
+            height: auto;
+            margin-right: 10px; /* Add some space between the logo and text */
+        }
+
+        .navbar-nav .nav-link {
+            color: #389375 !important; /* Primary color */
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #389375 !important; /* Darker shade of primary color */
+        }
+
+        .nav-item.active .nav-link {
+            color: #389375 !important; /* Darker shade of primary color */
+            font-weight: bold;
+        }
+
+        .container-fluid {
+            padding: 0;
+        }
+        .foot{
+            background-color: #797D81;
+            height:auto;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color:greenyellow;
+            
+
+        }
+      
+
+footer .footer-links {
+    margin-top: 1rem;
+}
+
+@media (max-width: 991.98px) {
+    footer {
+        height: auto;
+    }
+
+    footer .container {
+        width: 100%;
+    }
+
+    footer .footer-links {
+        margin-top: 0.5rem;
+    }
+}
+       
+    </style>
+    </head>
+
+<body>
+    {% endblock %}
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+        <a class="navbar-brand" href="/">
+            <img src="{% static 'courses/media/Utkarsh.jpg' %}" alt="Utkarsh" style="border-radius: 50%;"> <!-- Replace 'logo.png' with your actual logo file -->
+            <b>Curiosity</b>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                </li>
+                {% if request.user.is_authenticated %}
+                <li class="nav-item">
+                    <a class="nav-link" href="/my-courses">My Courses</a>
+                </li>
+                {% endif %}
+                <li class="nav-item">
+                    <a class="nav-link" href="/about">About</a>
+                </li>
+                {% if request.user.is_authenticated %}
+                <li class="nav-item">
+                    <a class="nav-link" href="/logout">Logout</a>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="/login">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/signup">Signup</a>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<div class="container-fluid">
+    {% block content %}
+
+    {% endblock %}
+</div>
+<!-- Footer 1 - Bootstrap Brain Component -->
+<footer class="foot">
+    <div class="container p-4" style="display: flex; justify-content: space-between;">
+        <div>
+            <p class="mb-0">&copy; 2023 Curiosity. All Rights Reserved.</p>
+            <p class="mb-0">Made with 🤍 by Utkarsh Sharma</p>
+            
+        </div>
+        <!-- Add Font Awesome icons for Instagram and Github -->
+        <div class="foot2">
+            <a class="text-white" href="https://instagram.com/utkarsharma123" style="text-decoration: none; margin-right: 10px;">
+                <i class="fab fa-instagram"></i> Instagram
+            </a>
+            <br>
+            <a class="text-white" href="https://github.com/usa1204119" style="text-decoration: none;">
+                <i class="fab fa-github"></i> Github
+            </a>
+        </div>
+    </div>
+    </footer>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+<!-- Font Awesome -->
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+
+{% block js %}  
+
+</body>
+
+</html>
+{% endblock %}
