@@ -1,6 +1,3 @@
-Here’s a concise and practical README template for your Course Application frontend (React) and backend (Django). It reflects the entities and relationships shown in your diagram. You can copy/paste and customize as needed.
-
----
 
 # Course Application
 
